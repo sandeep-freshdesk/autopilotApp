@@ -2,11 +2,25 @@
 <html>
 <head>
 <title><%= title %></title>
-<%= stylesheet_link_tag 'screen', :media => 'screen' %>
-<%= stylesheet_link_tag 'print', :media => 'print' %>
 <%= csrf_meta_tag %>
+<%= render 'layouts/stylesheets' %>
 </head>
 <body>
+<div class="container">
+<header>
+<%= image_tag("logo.png", :alt => "rails logo", :class => "round") %>
+<nav class="round">
+<ul>
+<li><%= link_to "Home", '#' %></li>
+<li><%= link_to "Help", '#' %></li>
+<li><%= link_to "Sign in", '#' %></li>
+</ul>
+</nav>
+</header>
+<section class="round">
 <%= yield %>
+</section>
+<%= render 'layouts/footer' %>
+</div>
 </body>
 </html>
