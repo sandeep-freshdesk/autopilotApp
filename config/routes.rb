@@ -3,6 +3,7 @@ AutopilotApp::Application.routes.draw do
   # get "pages/contact"
   # get "pages/about"
 
+  #resources :users
 
   root :to => 'pages#home'
 
@@ -11,6 +12,7 @@ AutopilotApp::Application.routes.draw do
   match '/help', :to => 'pages#help'
 
   match '/signup', :to => 'users#new'  # for signup page
+  match '/users/:id', :to => 'users#show' # for show specific user
  
 
 

@@ -10,6 +10,15 @@ gem 'sqlite3'
 
 # Gems used only for assets and not required
 # in production environments by default.
+
+group :development do
+	gem 'annotate'
+	#gem 'rspec-rails', '2.0.1'
+	#gem 'annotate-models', '1.0.4'
+	#gem 'faker', '0.3.1'
+end
+
+
 group :assets do
   gem 'sass-rails',   '~> 3.1.5.rc.2'
   gem 'coffee-rails', '~> 3.1.1'
