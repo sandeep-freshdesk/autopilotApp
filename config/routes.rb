@@ -3,7 +3,7 @@ AutopilotApp::Application.routes.draw do
   # get "pages/contact"
   # get "pages/about"
 
-  #resources :users
+  resources :users
 
   root :to => 'pages#home'
 
