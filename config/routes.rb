@@ -1,9 +1,13 @@
 AutopilotApp::Application.routes.draw do
+  get "sessions/new"
+
+
   # get "pages/home"
   # get "pages/contact"
   # get "pages/about"
 
   resources :users
+  resources :sessions, :only => [:new, :create, :destroy]
 
   root :to => 'pages#home'
 
@@ -12,6 +16,9 @@ AutopilotApp::Application.routes.draw do
   match '/help', :to => 'pages#help'
 
   match '/signup', :to => 'users#new'  # for signup page
+  match '/signin', :to => "sessions#new"
+  match '/signout', :to => "sessions#destroy"
+
   match '/users/:id', :to => 'users#show' # for show specific user
  
 
