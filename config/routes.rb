@@ -20,6 +20,8 @@ AutopilotApp::Application.routes.draw do
   match '/signout', :to => "sessions#destroy"
 
   match '/users/:id', :to => 'users#show' # for show specific user
+
+  #match 'index', :to => 'users#index' # all users available at   /users
  
 
 
