@@ -1,0 +1,16 @@
+<% url = "http://localhost:3000/autopilotContacts" %>
+<ul class="users">
+<% @autopilotContacts["contacts"].each do |autopilotContact| %>
+<li style="list-style-type:none">	
+		<% if autopilotContact["Email"] %>
+			<%= gravatar_image_tag autopilotContact["Email"] ,:size => 20 ,:class => 'gravatar'%>
+		<% end %>
+		<%= link_to autopilotContact["Name"], "#{url}/#{autopilotContact["contact_id"]}" %>
+		<%= autopilotContact["Email"] %>
+		
+		<%= button_to "Delete", "#{url}/#{autopilotContact["contact_id"]}", :method => :delete, :confirm => "are you sure ?", :title => "Delete #{autopilotContact['Name']}"  %>
+</li>
+<% end %>
+</ul>
+
+

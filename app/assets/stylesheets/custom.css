@@ -226,6 +226,14 @@ form.new_micropost textarea {
 }
 
 
+.floatLeft 	{
+	float:left;
+	color:red;
+}
+
+.inline {
+	display: inline;
+}
 
 
 

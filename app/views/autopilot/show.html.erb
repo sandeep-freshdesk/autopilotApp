@@ -1,0 +1,30 @@
+<table class="profile" summary="Profile information">
+<tr>
+<td class="main">
+<h3>
+	<% if @autopilotContact["Email"] %>
+			<%= gravatar_image_tag @autopilotContact["Email"] ,:size => 20 ,:class => 'gravatar'%>
+	<% end %>
+<%= @autopilotContact["Name"] %>
+</h3>
+<p><%= @autopilotContact["Email"] %></p>
+</td>
+<td class="sidebar round">
+<strong>Name</strong> <%= @autopilotContact["Name"] %><br />
+<strong>URL</strong> <%= link_to autopilotContacts_path(@autopilotContact["contact_id"]), @user %>
+</td>
+</tr>
+</table>
+
+<% if @autopilotContact["custom_fields"] %>
+<ul style="list-style-type:none">
+<% @autopilotContact["custom_fields"].each do |has| %>
+<li>
+	<%= has["kind"] %>:
+	<%= has["value"] %>
+</li>
+
+<% end %>
+</ul>
+
+<% end %>
