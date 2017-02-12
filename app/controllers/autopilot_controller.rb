@@ -1,4 +1,6 @@
 class AutopilotController < ApplicationController
+	before_filter :admin_user, :only => :destroy
+
 	def index
 		@autopilotContacts = AutopilotModel.getContacts
 		puts "in autopilot contacts = #{@autopilotContacts}"
@@ -18,4 +20,9 @@ class AutopilotController < ApplicationController
 
 		redirect_to autopilotContacts_path
 	end
+
+	private
+		def admin_user
+			redirect_to(root_path) unless current_user.admin?
+		end
 end
