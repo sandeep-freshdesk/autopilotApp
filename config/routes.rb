@@ -7,7 +7,7 @@ AutopilotApp::Application.routes.draw do
   # get "pages/about"
 
   resources :users
-  resources :sessions, :only => [:new, :create, :destroy]
+  # resources :sessions, :only => [:new, :create, :destroy]
 
   root :to => 'pages#home'
 
@@ -20,14 +20,20 @@ AutopilotApp::Application.routes.draw do
   match '/signout', :to => "sessions#destroy"
 
   match '/users/:id', :to => 'users#show' # for show specific user
-
  
-  match '/autopilotContacts', :to => 'autopilot#index'
+# match '/autopilot_models/create' => 'autopilot_models#create', :as => :create_autopilot
+# =>  match '/autopilot_models/:id', :to => 'autopilot_models#show' # for show specific user
+  resources :autopilot_models
+
+  match '/addNew_autopilot', :to => 'autopilot_models#new'
 
 
-  delete '/autopilotContacts/:pilotId', :to => "autopilot#destroy"
-  
-  match '/autopilotContacts/:pilotId', :to => "autopilot#show"
+
+
+  # match '/autopilotContacts', :to => 'autopilot_model#index'
+  # delete '/autopilotContacts/:pilotId', :to => "autopilot_model#destroy"
+  # match '/autopilotContacts/:pilotId', :to => "autopilot_model#show"
+  # match '/autopilotContacts/:pilotId/edit', :to => "autopilot_model#edit"
 
 
 

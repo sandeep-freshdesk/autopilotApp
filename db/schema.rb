@@ -14,6 +14,10 @@
 ActiveRecord::Schema.define(:version => 20170212093702) do
 
   create_table "autopilot_models", :force => true do |t|
+    t.string   "FirstName"
+    t.string   "LastName"
+    t.string   "Email"
+    t.string   "_NewEmail"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
