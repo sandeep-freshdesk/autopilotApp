@@ -1,0 +1,21 @@
+<% url = "http://localhost:3000/autopilot_models" %>
+<ul class="users">
+<% @autopilotContacts["contacts"].each do |autopilotContact| %>
+<li style="list-style-type:none">	
+		<% if autopilotContact["Email"] %>
+			<%= gravatar_image_tag autopilotContact["Email"] ,:size => 20 ,:class => 'gravatar'%>
+		<% end %>
+		<%= link_to autopilotContact["Name"], autopilot_model_path(:key => "value", :id => autopilotContact["contact_id"]) %>
+		<%= autopilotContact["Email"] %>
+		
+		<% if current_user.admin? %>
+
+			<%= button_to "Delete", autopilot_model_path(:id => autopilotContact["contact_id"]), :method => :delete, :confirm => "are you sure ?", :title => "Delete #{autopilotContact['Name']}"  %>
+			<%= link_to "Edit", edit_autopilot_model_path(:id => autopilotContact["contact_id"]) %>
+
+		<% end %>
+</li>
+<% end %>
+</ul>
+
+
